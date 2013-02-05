@@ -6,7 +6,7 @@ Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2
 
-This plugin adds two more tabs in the Debug Bar to display all the hooks(Actions and Filters) for the current request. Requires <b>Debug Bar</b> to be installed.
+This plugin adds two more tabs in the Debug Bar to display all the hooks(Actions and Filters) for the current request. Requires "Debug Bar" plugin.
 
 == Description ==
 
