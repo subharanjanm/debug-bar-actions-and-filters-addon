@@ -6,6 +6,8 @@ Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2
 
+This plugin adds two more tabs in the Debug Bar to display all the hooks(Actions and Filters) attached to the current request. Requires <a href=\"http://wordpress.org/extend/plugins/debug-bar/\" target=\"_blank\" title=\"Debug Bar\">Debug Bar</a> to be installed.
+
 == Description ==
 
 This plugin add two more tabs in the Debug Bar to display hooks(Actions and Filters) attached to the current request. Actions tab displays the actions hooked to current request. Filters tab displays the filter tags along with the functions attached to it with priority.  
