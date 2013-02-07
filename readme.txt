@@ -24,15 +24,14 @@ http://wordpress.org/extend/plugins/debug-bar/
 
 Don't use this on Live site. This is only for development purpose.
 
-== Frequently Asked Questions ==
-1. Can it be used on live site ?
-Ans: Please don't use this on Live site. This is only for development purpose.
-
 == Screenshots ==
 1. Debug Bar displaying Actions 
 
 2. Debug Bar displaying Filters 
 
+== Frequently Asked Questions ==
+1. Can it be used on live site ?
+Ans: Please don't use this on Live site. This is only for development purpose.
 
 == Changelog ==
 Adding the initial plugin to Wordpress plugins directory.
