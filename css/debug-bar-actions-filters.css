@@ -1,0 +1,7 @@
+.hooks_listing_container h2 {
+	width:100%;
+}
+.hooks_listing_container ul {
+	list-style-type: square !important;
+	padding-left: 20px !important;
+}
