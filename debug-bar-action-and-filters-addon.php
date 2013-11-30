@@ -58,6 +58,12 @@
 		return $output;
 	}
 
+	# via http://stackoverflow.com/questions/4127959/testing-for-a-php-closure-without-referring-to-the-closure-internal-class
+	function isClosure( $arg ) {
+	    $test = function(){};
+	    return $arg instanceof $test;
+	}
+
 	/**
 	 * Function to display the Filters applied to current request.
 	 * @return string $output display output for the filters panel
@@ -70,9 +76,7 @@
 		$output .= '<h2>List of Filter Hooks (with functions)</h2><br />' . "\n";
 		$output .= "<ul>\n";
 	
-	
 		foreach ( $wp_filter as $filter_key => $filter_val ) {
-
 			$output .= '<li>';
 			$output .= '<strong>' . $filter_key . "</strong><br />\n";
 			$output .= "<ul>\n";
@@ -84,8 +88,13 @@
 
 				$output .= "<ul>\n";
 				foreach ( $functions as $single_function ) {
-
-					if ( is_string( $single_function['function'] ) )
+					if ( !is_string( $single_function['function'] ) && ( !is_object( $single_function['function'] ) ) )
+						continue;
+					elseif ( ( isClosure($single_function['function'] ) ) )
+						continue;
+					elseif ( ( isClosure($single_function['function'][0] ) ) )
+						continue;						
+					elseif ( is_string( $single_function['function'] ) )
 						$output .= '<li>' . sanitize_text_field( $single_function['function'] ) . '</li>';
 					elseif ( is_array( $single_function['function'] ) && is_string( $single_function['function'][0] ) )
 						$output .= '<li>' . sanitize_text_field( $single_function['function'][0] ) . ' -> ' . sanitize_text_field( $single_function['function'][1] ) . '</li>';
