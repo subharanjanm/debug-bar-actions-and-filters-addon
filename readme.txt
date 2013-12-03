@@ -15,7 +15,6 @@ This plugin adds two more tabs in the Debug Bar to display hooks(Actions and Fil
   
 **Note:** 
 Debug Bar plugin must be installed prior to this.
-
 ( http://wordpress.org/extend/plugins/debug-bar/ )
 
 == Installation ==
@@ -24,7 +23,6 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
   
 **Note:** 
 Debug Bar plugin must be installed prior to this.
-
 ( http://wordpress.org/extend/plugins/debug-bar/ )
 
 Don't use this on Live site. This is only for development purpose.
@@ -36,7 +34,6 @@ Don't use this on Live site. This is only for development purpose.
 
 == Frequently Asked Questions ==
 1. Can it be used on live site ?
-
 Ans: Please don't use this on live site. This is only for development purpose.
 
 == Changelog ==
