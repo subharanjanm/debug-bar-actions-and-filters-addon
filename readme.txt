@@ -14,7 +14,8 @@ This plugin adds two more tabs in the Debug Bar to display all the hooks(Actions
 This plugin adds two more tabs in the Debug Bar to display hooks(Actions and Filters) attached to the current request. Actions tab displays the actions hooked to current request. Filters tab displays the filter tags along with the functions attached to it with respective priority.  
   
 **Note:** 
-Debug Bar plugin must be installed prior to this. 
+Debug Bar plugin must be installed prior to this.
+
 ( http://wordpress.org/extend/plugins/debug-bar/ )
 
 == Installation ==
@@ -22,7 +23,8 @@ Debug Bar plugin must be installed prior to this.
 Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.   
   
 **Note:** 
-Debug Bar plugin must be installed prior to this. 
+Debug Bar plugin must be installed prior to this.
+
 ( http://wordpress.org/extend/plugins/debug-bar/ )
 
 Don't use this on Live site. This is only for development purpose.
@@ -34,6 +36,7 @@ Don't use this on Live site. This is only for development purpose.
 
 == Frequently Asked Questions ==
 1. Can it be used on live site ?
+
 Ans: Please don't use this on live site. This is only for development purpose.
 
 == Changelog ==
