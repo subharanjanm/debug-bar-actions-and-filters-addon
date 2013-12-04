@@ -1,15 +1,21 @@
 <?php
-/*
-Plugin Name: Debug Bar Actions and Filters Addon
-Plugin URI: http://wordpress.org/extend/plugins/debug-bar-actions-and-filters-addon/
-Description: This plugin add two more tabs in the Debug Bar to display hooks(Actions and Filters) attached to the current request. Actions tab displays the actions hooked to current request. Filters tab displays the filter tags along with the functions attached to it with priority.
-Version: 0.3
-Author: Subharanjan
-Author Email: subharanjanmantri@gmail.com
-Author URI: http://www.subharanjan.in/
-License: GPLv2
-*/
+/**
+ * Plugin Name: Debug Bar Actions and Filters Addon
+ * Plugin URI: http://wordpress.org/extend/plugins/debug-bar-actions-and-filters-addon/
+ * Description: This plugin add two more tabs in the Debug Bar to display hooks(Actions and Filters) attached to the current request. Actions tab displays the actions hooked to current request. Filters tab displays the filter tags along with the functions attached to it with priority.
+ * Version: 0.3
+ * Author: Subharanjan
+ * Author Email: subharanjanmantri@gmail.com
+ * Author URI: http://www.subharanjan.in/
+ * License: GPLv2
+ *  
+ * @author  subharanjan
+ * @package debug-bar-actions-and-filters-addon
+ * @version 0.3
+ */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
+ 
 /**
  * Function to hook with debug_bar_panels filter.
  *

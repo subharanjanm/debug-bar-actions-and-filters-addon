@@ -2,7 +2,14 @@
 /**
  * This file contains the classes those create two new tabs in the debug panel provided by Debug Bar plugin.
  * It extends the functionality provided by the parent plugin "Debug Bar".
- */
+ *
+ * @author  subharanjan
+ * @package debug-bar-actions-and-filters-addon
+ * @version 0.3
+ */ 
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
+ 
 class Debug_Bar_Actions_Filters_Addon extends Debug_Bar_Panel {
     private $tab_name;
     private $tab;
