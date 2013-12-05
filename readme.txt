@@ -4,7 +4,7 @@ Contributors: subharanjan
 Tags: Debug Bar, Actions, Filters, Debug Bar Actions Display, Debug Bar Filters Display, List Hooks attached, List of Hooks Fired, Developer's tool for action and filter hooks
 Requires at least: 3.2
 Tested up to: 3.7.1
-Stable tag: 0.3
+Stable tag: 1.3
 License: GPLv2
 
 This plugin adds two more tabs in the Debug Bar to display all the hooks(Actions and Filters) for the current request. Requires "Debug Bar" plugin.
