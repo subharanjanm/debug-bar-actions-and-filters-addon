@@ -38,24 +38,24 @@ Ans: Please don't use this on live site. This is only for development purpose.
 
 == Changelog ==
 
-= 0.3 =
+= 1.3 =
 * Fixed HTML Validation error: "Saw U+0000 in stream." - props [Jrf](http://profiles.wordpress.org/jrf)
 * Moved css to separate file - props [Jrf](http://profiles.wordpress.org/jrf)
 
-= 0.2 =
+= 1.2 =
 * Fix for a closure issue.
 
-= 0.11 =
+= 1.1 =
 * Fix for a fatal error bacuase of BuddyPress hooks
 * Closed the ul tag.
 
-= 0.1 =
+= 1.0 =
 Adding the initial plugin to Wordpress plugins directory.
 
 == Upgrade Notice ==
 
-= 0.3 =
+= 1.3 =
 Some bug fixes
 
-= 0.1 =
+= 1.0 =
 New Installation
