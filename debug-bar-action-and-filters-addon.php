@@ -58,7 +58,7 @@ function debug_bar_action_and_filters_addon_display_actions() {
 }
 
 /**
- * Function to to check for clousures
+ * Function to to check for closures
  *
  * @param   mixed $arg function name
  *
