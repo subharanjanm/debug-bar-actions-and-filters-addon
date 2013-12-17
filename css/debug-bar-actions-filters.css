@@ -5,3 +5,7 @@
 	list-style-type: square !important;
 	padding-left: 20px !important;
 }
+
+.hooks_listing_container ul li em {
+	color: #999999;
+}

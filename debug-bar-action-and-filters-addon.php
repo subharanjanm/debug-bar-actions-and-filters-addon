@@ -65,8 +65,8 @@ function debug_bar_action_and_filters_addon_display_actions() {
  * @return  boolean $closurecheck return whether or not a closure
  */
 function isClosure( $arg ) {
-    $test = function () {
-    };
+    $test = function() {
+	};
     $closurecheck = ( $arg instanceof $test );
     return $closurecheck;
 }
@@ -92,20 +92,40 @@ function debug_bar_action_and_filters_addon_display_filters() {
             $output .= 'Priority: ' . $priority . "<br />\n";
             $output .= "<ul>\n";
             foreach ( $functions as $single_function ) {
-                if ( !is_string( $single_function['function'] ) && ( !is_object( $single_function['function'] ) ) )
+                if ( !is_string( $single_function['function'] ) && ( is_array( $single_function['function'] ) && ( !is_string( $single_function['function'][0] ) && !is_object( $single_function['function'][0] ) ) ) ) {
+					// Type 1 - not a callback
                     continue;
-                elseif ( ( isClosure( $single_function['function'] ) ) )
+				}
+				elseif ( isClosure( $single_function['function'] ) ) {
+					// Type 2 - closure
+                    $output .= '<li>[<em>closure</em>]</li>';
                     continue;
-                elseif ( ( isClosure( $single_function['function'][0] ) ) )
+				}
+				elseif ( is_array( $single_function['function'] ) && isClosure( $single_function['function'][0] ) ) {
+					// Type 3 - closure within an array
+                    $output .= '<li>[<em>closure</em>]</li>';
                     continue;
-                elseif ( is_string( $single_function['function'] ) )
+                }
+				elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) === false ) {
+					// Type 4 - simple string function (includes lambda's)
                     $output .= '<li>' . sanitize_text_field( $single_function['function'] ) . '</li>';
-                elseif ( is_array( $single_function['function'] ) && is_string( $single_function['function'][0] ) )
-                    $output .= '<li>' . sanitize_text_field( $single_function['function'][0] ) . ' -> ' . sanitize_text_field( $single_function['function'][1] ) . '</li>';
-                elseif ( is_array( $single_function['function'] ) && is_object( $single_function['function'][0] ) )
-                    $output .= '<li>(object) ' . get_class( $single_function['function'][0] ) . ' -> ' . sanitize_text_field( $single_function['function'][1] ) . '</li>';
-                else
+                }
+				elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) !== false ) {
+					// Type 5 - static class method calls - string
+                    $output .= '<li>[<em>class</em>] ' . str_replace( '::', ' :: ', sanitize_text_field( $single_function['function'] ) ) . '</li>';
+                }
+				elseif ( is_array( $single_function['function'] ) && ( is_string( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
+					// Type 6 - static class method calls - array
+                    $output .= '<li>[<em>class</em>] ' . sanitize_text_field( $single_function['function'][0] ) . ' :: ' . sanitize_text_field( $single_function['function'][1] ) . '</li>';
+                }
+				elseif ( is_array( $single_function['function'] ) && ( is_object( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
+					// Type 7 - object method calls
+                    $output .= '<li>[<em>object</em>] ' . get_class( $single_function['function'][0] ) . ' -> ' . sanitize_text_field( $single_function['function'][1] ) . '</li>';
+                }
+				else {
+					// Type 8 - undetermined
                     $output .= '<li><pre>' . var_export( $single_function ) . '</pre></li>';
+				}
             }
             $output .= "</ul>\n";
             $output .= "</li>\n";
