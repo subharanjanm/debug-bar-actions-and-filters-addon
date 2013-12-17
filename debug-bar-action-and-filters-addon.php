@@ -66,7 +66,7 @@ function debug_bar_action_and_filters_addon_display_actions() {
  */
 function isClosure( $arg ) {
     $test = function() {
-	};
+    };
     $closurecheck = ( $arg instanceof $test );
     return $closurecheck;
 }
