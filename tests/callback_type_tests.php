@@ -4,6 +4,8 @@
  * Example snippets to test whether all actions and filters are found & displayed in the
  * Debug Bar Actions and Filters plugin
  *
+ * @since 1.4
+ *
  * @todo: tests need to be added with examples for type 1, 3 and 8 in the callback if routine
  */
 

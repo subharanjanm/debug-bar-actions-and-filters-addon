@@ -1,4 +1,9 @@
 <?php
+/**
+ * More example snippets to test with namespaced functions and classes
+ *
+ * @since 1.4
+ */
 
 namespace Foobar;
 
