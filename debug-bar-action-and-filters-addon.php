@@ -124,7 +124,7 @@ function debug_bar_action_and_filters_addon_display_filters() {
                 }
                 else {
                     // Type 8 - undetermined
-                    $output .= '<li><pre>' . var_export( $single_function ) . '</pre></li>';
+                    $output .= '<li><pre>' . var_export( $single_function, true ) . '</pre></li>';
                 }
             }
             $output .= "</ul>\n";
