@@ -64,11 +64,13 @@ function debug_bar_action_and_filters_addon_display_actions() {
  *
  * @return  boolean $closurecheck return whether or not a closure
  */
-function isClosure( $arg ) {
-    $test = function() {
-    };
-    $closurecheck = ( $arg instanceof $test );
-    return $closurecheck;
+function dbafa_is_closure( $arg ) {
+	if( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+		return false;
+	}
+
+    include_once( plugin_dir_path( __FILE__ ) . 'php5.3-closure-test.php' );
+    return debug_bar_action_and_filters_addon_is_closure( $arg );
 }
 
 /**
@@ -92,19 +94,17 @@ function debug_bar_action_and_filters_addon_display_filters() {
             $output .= 'Priority: ' . $priority . "<br />\n";
             $output .= "<ul>\n";
             foreach ( $functions as $single_function ) {
-                if ( !is_string( $single_function['function'] ) && ( is_array( $single_function['function'] ) && ( !is_string( $single_function['function'][0] ) && !is_object( $single_function['function'][0] ) ) ) ) {
+                if ( ( !is_string( $single_function['function'] ) && !is_object( $single_function['function'] ) ) && ( !is_array( $single_function['function'] ) || ( is_array( $single_function['function'] ) && ( !is_string( $single_function['function'][0] ) && !is_object( $single_function['function'][0] ) ) ) ) ) {
                     // Type 1 - not a callback
                     continue;
                 }
-                elseif ( isClosure( $single_function['function'] ) ) {
+                elseif ( dbafa_is_closure( $single_function['function'] ) ) {
                     // Type 2 - closure
                     $output .= '<li>[<em>closure</em>]</li>';
-                    continue;
                 }
-                elseif ( is_array( $single_function['function'] ) && isClosure( $single_function['function'][0] ) ) {
+                elseif ( ( is_array( $single_function['function'] ) || is_object( $single_function['function'] ) ) && dbafa_is_closure( $single_function['function'][0] ) ) {
                     // Type 3 - closure within an array
                     $output .= '<li>[<em>closure</em>]</li>';
-                    continue;
                 }
                 elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) === false ) {
                     // Type 4 - simple string function (includes lambda's)
