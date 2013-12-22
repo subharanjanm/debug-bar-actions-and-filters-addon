@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * PHP 5.3+ functionality in a separate file
+ *
+ * @since 1.4.1
+ * @author  subharanjan
+ * @package debug-bar-actions-and-filters-addon
+ * @version 1.4.1
+ */
 if( ! function_exists( 'debug_bar_action_and_filters_addon_is_closure' ) ) {
 	/**
 	 * Function to check for closures

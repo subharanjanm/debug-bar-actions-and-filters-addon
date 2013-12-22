@@ -5,7 +5,7 @@
  *
  * @author  subharanjan
  * @package debug-bar-actions-and-filters-addon
- * @version 1.4
+ * @version 1.4.1
  */ 
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
