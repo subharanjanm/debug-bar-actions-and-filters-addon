@@ -32,12 +32,13 @@ Don't use this on Live site. This is only for development purpose.
 
 == Frequently Asked Questions ==
 1. Can it be used on live site ?
-And: Please don't use this on live site. This is only for development purpose.
+
+Answer: Please don't use this on live site. This is only for development purpose.
 
 == Changelog ==
 
 = 1.4.1 =
-* Bugfix: Make sure the plugin will not give a parse error on PHP < 5.3 - props [Jrf](http://profiles.wordpress.org/jrf)
+* Bugfix: Make sure the plugin will not give a parse error on PHP < 5.3 for Closure check - props [Jrf](http://profiles.wordpress.org/jrf)
 
 = 1.4 =
 * Bugfix: callbacks given as array were no longer showing - props [Jrf](http://profiles.wordpress.org/jrf)
