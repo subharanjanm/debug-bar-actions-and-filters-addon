@@ -110,19 +110,19 @@ function debug_bar_action_and_filters_addon_display_filters() {
                 }
                 elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) === false ) {
                     // Type 4 - simple string function (includes lambda's)
-                    $output .= '<li>' . sanitize_text_field( $single_function['function'] ) . '</li>';
+                    $output .= '<li>' . sanitize_text_field( $single_function['function'] ) . '()</li>';
                 }
                 elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) !== false ) {
                     // Type 5 - static class method calls - string
-                    $output .= '<li>[<em>class</em>] ' . str_replace( '::', ' :: ', sanitize_text_field( $single_function['function'] ) ) . '</li>';
+                    $output .= '<li>[<em>class</em>] ' . str_replace( '::', ' :: ', sanitize_text_field( $single_function['function'] ) ) . '()</li>';
                 }
                 elseif ( is_array( $single_function['function'] ) && ( is_string( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
                     // Type 6 - static class method calls - array
-                    $output .= '<li>[<em>class</em>] ' . sanitize_text_field( $single_function['function'][0] ) . ' :: ' . sanitize_text_field( $single_function['function'][1] ) . '</li>';
+                    $output .= '<li>[<em>class</em>] ' . sanitize_text_field( $single_function['function'][0] ) . ' :: ' . sanitize_text_field( $single_function['function'][1] ) . '()</li>';
                 }
                 elseif ( is_array( $single_function['function'] ) && ( is_object( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
                     // Type 7 - object method calls
-                    $output .= '<li>[<em>object</em>] ' . get_class( $single_function['function'][0] ) . ' -> ' . sanitize_text_field( $single_function['function'][1] ) . '</li>';
+                    $output .= '<li>[<em>object</em>] ' . get_class( $single_function['function'][0] ) . ' -> ' . sanitize_text_field( $single_function['function'][1] ) . '()</li>';
                 }
                 else {
                     // Type 8 - undetermined
