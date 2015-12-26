@@ -79,7 +79,9 @@ function dbafa_is_closure( $arg ) {
  * @return string $output display output for the filters panel
  */
 function debug_bar_action_and_filters_addon_display_filters() {
-    global $wp_filter;
+    $wp_filter = $GLOBALS['wp_filter'];
+    ksort( $wp_filter );
+
     $output = '';
     $output .= '<div class="hooks_listing_container">' . "\n";
     $output .= '<h2>List of Filter Hooks (with functions)</h2><br />' . "\n";
