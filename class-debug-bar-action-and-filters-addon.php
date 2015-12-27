@@ -13,6 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Debug_Bar_Actions_Filters_Addon extends Debug_Bar_Panel {
     private $tab;
     private $callback;
+    
+    public function __construct( $title = '', $callback = '' ) {
+        $this->tab      = $title;
+        $this->callback = $callback;
+        parent::__construct();
+	}
     public function init() {
         $this->title( $this->tab );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -20,10 +26,6 @@ class Debug_Bar_Actions_Filters_Addon extends Debug_Bar_Panel {
     }
     public function enqueue_scripts() {
         wp_enqueue_style( 'debug-bar-actions-filters', plugins_url( 'css/debug-bar-actions-filters.css', __FILE__ ), array( 'debug-bar' ), false );
-    }
-    public function set_tab( $name, $callback ) {
-        $this->tab = $name;
-        $this->callback = $callback;
     }
     public function prerender() {
         $this->set_visible( true );
