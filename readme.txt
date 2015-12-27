@@ -38,11 +38,11 @@ Answer: Please don't use this on live site. This is only for development purpose
 == Changelog ==
 
 = 1.5 =
-* Show total hooks run at the top of the action hooks panel.
-* Show various totals at the top of the filters panel.
-* Changed layout of the filters panel to a table to make it more compact.
-* Show the filters sorted alphabetically.
-* Allow for localization of the plugin.
+* Show total hooks run at the top of the action hooks panel - props [Jrf](http://profiles.wordpress.org/jrf).
+* Show various totals at the top of the filters panel - props [Jrf](http://profiles.wordpress.org/jrf).
+* Changed layout of the filters panel to a table to make it more compact - props [Jrf](http://profiles.wordpress.org/jrf).
+* Show the filters sorted alphabetically - props [Jrf](http://profiles.wordpress.org/jrf).
+* Allow for localization of the plugin - props [Jrf](http://profiles.wordpress.org/jrf).
 
 = 1.4.1 =
 * Bugfix: Make sure the plugin will not give a parse error on PHP < 5.3 for Closure check - props [Jrf](http://profiles.wordpress.org/jrf)
