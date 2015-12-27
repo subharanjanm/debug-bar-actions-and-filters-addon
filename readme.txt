@@ -3,8 +3,8 @@
 Contributors: subharanjan
 Tags: Debug Bar, Actions, Filters, Debug Bar Actions Display, Debug Bar Filters Display, List Hooks attached, List of Hooks Fired, Developer's tool for action and filter hooks
 Requires at least: 3.3
-Tested up to: 3.8
-Stable tag: 1.4.1
+Tested up to: 4.4
+Stable tag: 1.5
 License: GPLv2
 
 This plugin adds two more tabs in the Debug Bar to display all the hooks(Actions and Filters) for the current request. Requires "Debug Bar" plugin.
@@ -36,6 +36,13 @@ Don't use this on Live site. This is only for development purpose.
 Answer: Please don't use this on live site. This is only for development purpose.
 
 == Changelog ==
+
+= 1.5 =
+* Show total hooks run at the top of the action hooks panel.
+* Show various totals at the top of the filters panel.
+* Changed layout of the filters panel to a table to make it more compact.
+* Show the filters sorted alphabetically.
+* Allow for localization of the plugin.
 
 = 1.4.1 =
 * Bugfix: Make sure the plugin will not give a parse error on PHP < 5.3 for Closure check - props [Jrf](http://profiles.wordpress.org/jrf)
