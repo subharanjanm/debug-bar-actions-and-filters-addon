@@ -1,0 +1,46 @@
+# Travis CI (MIT License) configuration file
+# @link https://travis-ci.org/
+
+# Use new container based environment
+sudo: false
+
+# Declare project language.
+# @link http://about.travis-ci.org/docs/user/languages/php/
+language: php
+
+# Declare versions of PHP to use. Use one decimal max.
+matrix:
+  fast_finish: true
+
+  include:
+    # aliased to 5.2.17
+    - php: '5.2'
+      env: CLOSURE=0
+    # aliased to a recent 5.4.x version
+    - php: '5.4'
+      env: CLOSURE=1
+    # aliased to a recent 5.6.x version
+    - php: '5.6'
+      env: CLOSURE=1
+    # aliased to a recent 7.x version
+    - php: '7.0'
+      env: CLOSURE=1
+    # aliased to a recent hhvm version
+    - php: 'hhvm'
+      env: CLOSURE=1
+
+  allow_failures:
+    - php: 'hhvm'
+
+# Run test script commands.
+# All commands must exit with code 0 on success. Anything else is considered failure.
+script:
+    # Search for PHP syntax errors.
+    - if [[ "$CLOSURE" == "0" ]]; then find -L . -path ./tests -prune -o -name 'php5.3*.php' -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l; fi
+    - if [[ "$CLOSURE" == "1" ]]; then find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l; fi
+
+
+# Receive notifications for build results.
+# @link http://docs.travis-ci.com/user/notifications/#Email-notifications
+notifications:
+    email: false
