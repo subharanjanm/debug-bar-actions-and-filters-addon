@@ -7,8 +7,9 @@
  * Author: Subharanjan
  * Author Email: subharanjanmantri@gmail.com
  * Author URI: http://www.subharanjan.in/
+ * Depends: Debug Bar
  * License: GPLv2
- *  
+ *
  * @author  subharanjan
  * @package debug-bar-actions-and-filters-addon
  * @version 1.4.1

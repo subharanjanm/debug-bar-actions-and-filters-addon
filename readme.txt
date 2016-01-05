@@ -3,7 +3,7 @@
 Contributors: subharanjan
 Tags: Debug Bar, Actions, Filters, Debug Bar Actions Display, Debug Bar Filters Display, List Hooks attached, List of Hooks Fired, Developer's tool for action and filter hooks
 Requires at least: 3.3
-Tested up to: 3.8
+Tested up to: 4.0
 Stable tag: 1.4.1
 License: GPLv2
 
@@ -36,6 +36,9 @@ Don't use this on Live site. This is only for development purpose.
 Answer: Please don't use this on live site. This is only for development purpose.
 
 == Changelog ==
+
+= Trunk =
+* Fix compatibility with the [Plugin Dependencies](http://wordpress.org/plugins/plugin-dependencies/) plugin
 
 = 1.4.1 =
 * Bugfix: Make sure the plugin will not give a parse error on PHP < 5.3 for Closure check - props [Jrf](http://profiles.wordpress.org/jrf)
