@@ -8,7 +8,7 @@
  * Author Email: subharanjanmantri@gmail.com
  * Author URI: http://subharanjan.com/
  * Depends: Debug Bar
- * Text Domain: debug-bar-actions-filters
+ * Text Domain: debug-bar-actions-and-filters-addon
  * Domain Path: /languages
  * License: GPLv2
  *
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! function_exists( 'debug_bar_action_and_filters_addon_has_parent_plugin' ) ) {
 	function debug_bar_action_and_filters_addon_has_parent_plugin() {
 		if ( is_admin() && ( ! class_exists( 'Debug_Bar' ) && current_user_can( 'activate_plugins' ) ) ) {
-			add_action( 'admin_notices', create_function( null, 'echo \'<div class="error"><p>\' . sprintf( __( \'Activation failed: <strong>Debug Bar</strong> must be activated to use the <strong>Debug Bar Actions and Filters Addon</strong>. %sVisit your plugins page to install and activate.\', \'debug-bar-actions-filters\' ), \'<a href="\' . admin_url( \'plugins.php#debug-bar\' ) . \'">\' ) . \'</a></p></div>\';' ) );
+			add_action( 'admin_notices', create_function( null, 'echo \'<div class="error"><p>\' . sprintf( __( \'Activation failed: <strong>Debug Bar</strong> must be activated to use the <strong>Debug Bar Actions and Filters Addon</strong>. %sVisit your plugins page to install and activate.\', \'debug-bar-actions-and-filters-addon\' ), \'<a href="\' . admin_url( \'plugins.php#debug-bar\' ) . \'">\' ) . \'</a></p></div>\';' ) );
 
 			deactivate_plugins( plugin_basename( __FILE__ ) );
 			if ( isset( $_GET['activate'] ) ) {
@@ -69,8 +69,8 @@ function debug_bar_action_and_filters_addon_display_actions() {
 
 	$output = '
 	<div class="hooks_listing_container">
-		<h2><span>' . esc_html__( 'Total Actions in this page load:', 'debug-bar-actions-filters' ) . '</span>' . count( $wp_actions ) . '</h2>
-		<h3>' . esc_html__( 'List of Action Hooks', 'debug-bar-actions-filters' ) . '</h3>
+		<h2><span>' . esc_html__( 'Total Actions in this page load:', 'debug-bar-actions-and-filters-addon' ) . '</span>' . count( $wp_actions ) . '</h2>
+		<h3>' . esc_html__( 'List of Action Hooks', 'debug-bar-actions-and-filters-addon' ) . '</h3>
 		<ol>';
 
 	foreach ( $wp_actions as $action_key => $action_val ) {
@@ -114,12 +114,12 @@ function debug_bar_action_and_filters_addon_display_filters() {
 	/* Create header row. */
 	$header_row = '
 			<tr>
-				<th>' . esc_html__( 'Hook', 'debug-bar-actions-filters' ) . '</th>
-				<th>' . esc_html__( 'Priority', 'debug-bar-actions-filters' ) . '</th>
-				<th>' . esc_html__( 'Registered callbacks', 'debug-bar-actions-filters' ) . '</th>
+				<th>' . esc_html__( 'Hook', 'debug-bar-actions-and-filters-addon' ) . '</th>
+				<th>' . esc_html__( 'Priority', 'debug-bar-actions-and-filters-addon' ) . '</th>
+				<th>' . esc_html__( 'Registered callbacks', 'debug-bar-actions-and-filters-addon' ) . '</th>
 			</tr>';
 
-	$table = '<table class="debug-bar-table debug-bar-actions-filters">
+	$table = '<table class="debug-bar-table debug-bar-actions-and-filters-addon">
 		<thead>' . $header_row . '
 		</thead>
 		<tfoot>' . $header_row . '
@@ -162,11 +162,11 @@ function debug_bar_action_and_filters_addon_display_filters() {
 						continue;
 					} elseif ( dbafa_is_closure( $single_function['function'] ) ) {
 						// Type 2 - closure
-						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-filters' ) . '</em>]</li>';
+						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
 					} elseif ( ( is_array( $single_function['function'] ) || is_object( $single_function['function'] ) ) && dbafa_is_closure( $single_function['function'][0] ) ) {
 						// Type 3 - closure within an array
-						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-filters' ) . '</em>]</li>';
+						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
 					} elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) === false ) {
 						// Type 4 - simple string function (includes lambda's)
@@ -175,15 +175,15 @@ function debug_bar_action_and_filters_addon_display_filters() {
 					} elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) !== false ) {
 						// Type 5 - static class method calls - string
 						$signature = str_replace( '::', ' :: ', sanitize_text_field( $single_function['function'] ) );
-						$table .= '<li>[<em>' . esc_html__( 'class', 'debug-bar-actions-filters' ) . '</em>] ' . $signature . '</li>';
+						$table .= '<li>[<em>' . esc_html__( 'class', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} elseif ( is_array( $single_function['function'] ) && ( is_string( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
 						// Type 6 - static class method calls - array
 						$signature = sanitize_text_field( $single_function['function'][0] ) . ' :: ' . sanitize_text_field( $single_function['function'][1] );
-						$table .= '<li>[<em>' . esc_html__( 'class', 'debug-bar-actions-filters' ) . '</em>] ' . $signature . '</li>';
+						$table .= '<li>[<em>' . esc_html__( 'class', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} elseif ( is_array( $single_function['function'] ) && ( is_object( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
 						// Type 7 - object method calls
 						$signature = esc_html( get_class( $single_function['function'][0] ) ) . ' -> ' . sanitize_text_field( $single_function['function'][1] );
-						$table .= '<li>[<em>' . esc_html__( 'object', 'debug-bar-actions-filters' ) . '</em>] ' . $signature . '</li>';
+						$table .= '<li>[<em>' . esc_html__( 'object', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} else {
 						// Type 8 - undetermined
 						$table .= '<li><pre>' . var_export( $single_function, true ) . '</pre></li>';
@@ -208,9 +208,9 @@ function debug_bar_action_and_filters_addon_display_filters() {
 
 	$output = '
 	<div class="hooks_listing_container">
-		<h2><span>' . esc_html__( 'Total hooks with registered actions/filters:', 'debug-bar-actions-filters' ) . '</span>' . count( $wp_filter ) . '</h2>
-		<h2><span>' . esc_html__( 'Total registered callbacks:', 'debug-bar-actions-filters' ) . '</span>' . $hook_in_count . '</h2>
-		<h2><span>' . esc_html__( 'Unique registered callbacks:', 'debug-bar-actions-filters' ) . '</span>' . $unique_callbacks . '</h2>
+		<h2><span>' . esc_html__( 'Total hooks with registered actions/filters:', 'debug-bar-actions-and-filters-addon' ) . '</span>' . count( $wp_filter ) . '</h2>
+		<h2><span>' . esc_html__( 'Total registered callbacks:', 'debug-bar-actions-and-filters-addon' ) . '</span>' . $hook_in_count . '</h2>
+		<h2><span>' . esc_html__( 'Unique registered callbacks:', 'debug-bar-actions-and-filters-addon' ) . '</span>' . $unique_callbacks . '</h2>
 		' . $table . '
 	</div>';
 
