@@ -3,7 +3,7 @@
  * Plugin Name: Debug Bar Actions and Filters Addon
  * Plugin URI: https://wordpress.org/plugins/debug-bar-actions-and-filters-addon/
  * Description: This plugin add two more tabs in the Debug Bar to display hooks(Actions and Filters) attached to the current request. Actions tab displays the actions hooked to current request. Filters tab displays the filter tags along with the functions attached to it with priority.
- * Version: 1.4.1
+ * Version: 1.5
  * Author: Subharanjan
  * Author Email: subharanjanmantri@gmail.com
  * Author URI: http://subharanjan.com/
@@ -14,7 +14,7 @@
  *
  * @author  subharanjan
  * @package debug-bar-actions-and-filters-addon
- * @version 1.4.1
+ * @version 1.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
