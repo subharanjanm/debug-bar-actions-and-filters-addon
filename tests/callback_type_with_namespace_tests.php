@@ -27,7 +27,7 @@ class Foo {
 	public function object_method_added_from_constructor( $content ) {
 		return $content;
 	}
-	
+
 	public function object_method_added_outside_class( $content ) {
 		return $content;
 	}
@@ -35,7 +35,7 @@ class Foo {
 	public static function static_method_added_from_constructor_as_string( $content ) {
 		return $content;
 	}
-	
+
 	public static function static_method_added_from_constructor_as_array( $content ) {
 		return $content;
 	}
@@ -43,7 +43,7 @@ class Foo {
 	public static function static_method_added_outside_class_as_string( $content ) {
 		return $content;
 	}
-	
+
 	public static function static_method_added_outside_class_as_array( $content ) {
 		return $content;
 	}
@@ -52,15 +52,13 @@ class Foo {
 /* Testing with namespace */
 
 // Type 4: String function callback
-add_filter( 'the_content', __NAMESPACE__ .'\Bar' );
+add_filter( 'the_content', __NAMESPACE__ . '\Bar' );
 
 // Type 5: Static object method - string callback
 add_filter( 'the_content', __NAMESPACE__ . '\Foo::static_method_added_outside_class_as_string' );
 
-
 // Type 6: Static object method - array callback
 add_filter( 'the_content', array( __NAMESPACE__ . '\Foo', 'static_method_added_outside_class_as_array' ) );
-
 
 // Type 7: Object method with instantiated object
 $ns_obj = new namespace\Foo();
