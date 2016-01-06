@@ -29,12 +29,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( !function_exists( 'debug_bar_action_and_filters_addon_panel' ) ) {
     function debug_bar_action_and_filters_addon_panel( $panels ) {
         require_once( plugin_dir_path( __FILE__ ) . 'class-debug-bar-action-and-filters-addon.php' );
-        $wp_actions = new Debug_Bar_Actions_Addon_Panel();
-        $wp_actions->set_tab( __( 'Action Hooks', 'debug-bar-actions-filters' ), 'debug_bar_action_and_filters_addon_display_actions' );
-        $panels[] = $wp_actions;
-        $wp_filters = new Debug_Bar_Filters_Addon_Panel();
-        $wp_filters->set_tab( __( 'Filter Hooks', 'debug-bar-actions-filters' ), 'debug_bar_action_and_filters_addon_display_filters' );
-        $panels[] = $wp_filters;
+
+        $panels[] = new Debug_Bar_Actions_Addon_Panel( 'Action Hooks', 'debug_bar_action_and_filters_addon_display_actions' );
+        $panels[] = new Debug_Bar_Filters_Addon_Panel( 'Filter Hooks', 'debug_bar_action_and_filters_addon_display_filters' );
+
         return $panels;
     }
 }
