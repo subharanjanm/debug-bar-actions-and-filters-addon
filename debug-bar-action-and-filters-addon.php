@@ -119,7 +119,7 @@ function debug_bar_action_and_filters_addon_display_filters() {
 				<th>' . esc_html__( 'Registered callbacks', 'debug-bar-actions-and-filters-addon' ) . '</th>
 			</tr>';
 
-	$table = '<table class="debug-bar-table debug-bar-actions-and-filters-addon">
+	$table = '<table class="debug-bar-table debug-bar-actions-filters">
 		<thead>' . $header_row . '
 		</thead>
 		<tfoot>' . $header_row . '
