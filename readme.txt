@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Debug Bar, Actions, Filters, Debug Bar Actions Display, Debug Bar Filters Display, List Hooks attached, List of Hooks Fired, Developer's tool for action and filter hooks
 Requires at least: 3.3
 Tested up to: 4.4
-Stable tag: 1.5
+Stable tag: 1.5.1
 License: GPLv2
 
 Displays all the hooks( Actions and Filters ) for the current request in Debug Bar panel.
@@ -49,6 +49,10 @@ This plugin is only meant to be used for development purposes, but shouldn't cau
 
 
 == Changelog ==
+
+= 1.5.1 =
+* Leaner language loading.
+* Fix some layout issues.
 
 = 1.5 =
 * Show total hooks run at the top of the action hooks panel - props [Jrf](http://profiles.wordpress.org/jrf).

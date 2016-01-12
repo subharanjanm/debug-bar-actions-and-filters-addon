@@ -5,7 +5,7 @@
  *
  * @author  subharanjan
  * @package debug-bar-actions-and-filters-addon
- * @version 1.5
+ * @version 1.5.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -34,7 +34,7 @@ class Debug_Bar_Actions_Filters_Addon extends Debug_Bar_Panel {
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'debug-bar-actions-filters', plugins_url( 'css/debug-bar-actions-filters.css', __FILE__ ), array( 'debug-bar' ), '1.5' . 'all' );
+		wp_enqueue_style( 'debug-bar-actions-filters', plugins_url( 'css/debug-bar-actions-filters.css', __FILE__ ), array( 'debug-bar' ), '1.5.1' . 'all' );
 	}
 
 	public function prerender() {
