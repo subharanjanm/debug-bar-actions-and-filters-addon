@@ -49,15 +49,18 @@ add_action( 'admin_init', 'debug_bar_action_and_filters_addon_has_parent_plugin'
  */
 if ( ! function_exists( 'debug_bar_action_and_filters_addon_panel' ) ) {
 	function debug_bar_action_and_filters_addon_panel( $panels ) {
+		load_plugin_textdomain( 'debug-bar-actions-and-filters-addon' );
+
 		require_once( plugin_dir_path( __FILE__ ) . 'class-debug-bar-action-and-filters-addon.php' );
 
-		$panels[] = new Debug_Bar_Actions_Addon_Panel( 'Action Hooks', 'debug_bar_action_and_filters_addon_display_actions' );
-		$panels[] = new Debug_Bar_Filters_Addon_Panel( 'Filter Hooks', 'debug_bar_action_and_filters_addon_display_filters' );
+		$panels[] = new Debug_Bar_Actions_Addon_Panel( __( 'Action Hooks', 'debug-bar-actions-and-filters-addon' ), 'debug_bar_action_and_filters_addon_display_actions' );
+		$panels[] = new Debug_Bar_Filters_Addon_Panel( __( 'Filter Hooks', 'debug-bar-actions-and-filters-addon' ), 'debug_bar_action_and_filters_addon_display_filters' );
 
 		return $panels;
 	}
 }
 add_filter( 'debug_bar_panels', 'debug_bar_action_and_filters_addon_panel' );
+
 
 /**
  * Function to display the Actions attached to current request.

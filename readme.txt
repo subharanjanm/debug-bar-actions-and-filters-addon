@@ -50,9 +50,12 @@ This plugin is only meant to be used for development purposes, but shouldn't cau
 
 == Changelog ==
 
+= Trunk =
+* Defer to translation retrieved from GlotPress, leaner language loading and language loading now compatible with use of the plugin in the `must-use` plugins directory - props [Jrf](http://profiles.wordpress.org/jrf)
+
 = 1.5.1 =
-* Leaner language loading.
-* Fix some layout issues.
+* Leaner language loading - props [Jrf](http://profiles.wordpress.org/jrf)
+* Fix some layout issues - props [Jrf](http://profiles.wordpress.org/jrf)
 
 = 1.5 =
 * Show total hooks run at the top of the action hooks panel - props [Jrf](http://profiles.wordpress.org/jrf).
