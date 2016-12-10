@@ -129,6 +129,10 @@ function debug_bar_action_and_filters_addon_display_filters() {
 	$hook_in_count        = 0;
 	$callbacks_registered = array();
 	foreach ( $wp_filter as $filter_key => $filter_val ) {
+		if ( $filter_val instanceof WP_Hook ) {
+			$filter_val = $filter_val->callbacks;
+		}
+
 		$filter_count = count( $filter_val );
 
 		$rowspan = '';
