@@ -17,7 +17,7 @@ This plugin adds two more tabs in the Debug Bar to display hooks(Actions and Fil
 
 = Important =
 
-This plugin requires the [Debug Bar](http://wordpress.org/plugins/debug-bar/) plugin to be installed and activated.
+This plugin requires the [Debug Bar](https://wordpress.org/plugins/debug-bar/) plugin to be installed and activated.
 
 Also note that this plugin should be used solely for debugging and/or in a development environment and is not intended for use on a production site.
 
@@ -26,12 +26,12 @@ If you like this plugin, please [rate and/or review](https://wordpress.org/suppo
 
 == Installation ==
 
-1. Install Debug Bar if not already installed (http://wordpress.org/extend/plugins/debug-bar/)
+1. Install Debug Bar if not already installed (https://wordpress.org/plugins/debug-bar/)
 2. Extract the .zip file for this plugin and upload its contents to the `/wp-content/plugins/` directory. Alternatively, you can install directly from the Plugin directory within your WordPress Install.
 3. Activate the plugin through the "Plugins" menu in WordPress.
   
 **Note:**
-[Debug Bar](http://wordpress.org/extend/plugins/debug-bar/) plugin must be installed prior to this.   
+[Debug Bar](https://wordpress.org/plugins/debug-bar/) plugin must be installed prior to this.
 
 Don't use this on Live/Production site. This is only for development purpose.
 
@@ -63,7 +63,7 @@ This plugin is only meant to be used for development purposes, but shouldn't cau
 * Change layout of the filters panel to a table to make it more compact - props [Jrf](http://profiles.wordpress.org/jrf).
 * Show the filters sorted alphabetically - props [Jrf](http://profiles.wordpress.org/jrf).
 * Allow for localization of the plugin - props [Jrf](http://profiles.wordpress.org/jrf).
-* Fix compatibility with the [Plugin Dependencies](http://wordpress.org/plugins/plugin-dependencies/) plugin
+* Fix compatibility with the [Plugin Dependencies](https://wordpress.org/plugins/plugin-dependencies/) plugin
 * Add parent plugin requirement check.
 
 = 1.4.1 =
