@@ -182,7 +182,7 @@ function debug_bar_action_and_filters_addon_display_filters() {
 						// Type 2 - closure
 						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
-					} elseif ( ( is_array( $single_function['function'] ) || is_object( $single_function['function'] ) ) && dbafa_is_closure( $single_function['function'][0] ) ) {
+					} elseif ( is_array( $single_function['function'] ) && is_object( $single_function['function'][0] ) && dbafa_is_closure( $single_function['function'][0] ) ) {
 						// Type 3 - closure within an array
 						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
