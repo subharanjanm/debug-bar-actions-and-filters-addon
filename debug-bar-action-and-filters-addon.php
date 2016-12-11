@@ -204,6 +204,7 @@ function debug_bar_action_and_filters_addon_display_filters() {
 						$table .= '<li>[<em>' . esc_html__( 'object', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} else {
 						// Type 8 - undetermined
+						$signature = uniqid( 'undetermined_callback_' );
 						$table .= '<li><pre>' . var_export( $single_function, true ) . '</pre></li>';
 					}
 
