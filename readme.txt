@@ -4,8 +4,8 @@ Contributors: subharanjan, jrf
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9N6KZQ2K8W7UJ
 Tags: Debug Bar, Actions, Filters, Debug Bar Actions Display, Debug Bar Filters Display, List Hooks attached, List of Hooks Fired, Developer's tool for action and filter hooks
 Requires at least: 3.3
-Tested up to: 4.7
-Stable tag: 1.5.2
+Tested up to: 4.8.1
+Stable tag: 1.5.3
 Requires PHP: 5.2.4
 License: GPLv2
 
@@ -50,6 +50,10 @@ This plugin is only meant to be used for development purposes, but shouldn't cau
 
 
 == Changelog ==
+
+= 1.5.3 =
+* README: Add "Requires PHP" header
+* Confirm WP 4.8.1 compatibility
 
 = 1.5.2 =
 * Fix compatibility with WP 4.7
