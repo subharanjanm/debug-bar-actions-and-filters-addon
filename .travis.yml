@@ -4,6 +4,8 @@
 # Use new container based environment
 sudo: false
 
+dist: trusty
+
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
 language: php
@@ -15,6 +17,7 @@ matrix:
   include:
     # aliased to 5.2.17
     - php: '5.2'
+      dist: precise
       env: CLOSURE=0
     # aliased to a recent 5.4.x version
     - php: '5.4'
@@ -25,12 +28,15 @@ matrix:
     # aliased to a recent 7.x version
     - php: '7.0'
       env: CLOSURE=1
+    # bleeding edge PHP
+    - php: 'nightly'
     # aliased to a recent hhvm version
     - php: 'hhvm'
       env: CLOSURE=1
 
   allow_failures:
     - php: 'hhvm'
+    - php: 'nightly'
 
 # Run test script commands.
 # All commands must exit with code 0 on success. Anything else is considered failure.
