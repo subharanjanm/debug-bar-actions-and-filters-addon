@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Debug Bar, Actions, Filters, Debug Bar Actions Display, Debug Bar Filters Display, List Hooks attached, List of Hooks Fired, Developer's tool for action and filter hooks
 Requires at least: 3.3
 Tested up to: 4.8.1
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 Requires PHP: 5.2.4
 License: GPLv2
 
@@ -50,6 +50,9 @@ This plugin is only meant to be used for development purposes, but shouldn't cau
 
 
 == Changelog ==
+
+= 1.5.4 =
+* Improve the travis build [#22](https://github.com/subharanjanm/debug-bar-actions-and-filters-addon/pull/22)
 
 = 1.5.3 =
 * README: Add "Requires PHP" header
