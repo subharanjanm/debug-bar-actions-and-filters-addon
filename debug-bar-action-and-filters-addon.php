@@ -182,10 +182,14 @@ function debug_bar_action_and_filters_addon_display_filters() {
 						// Type 2 - closure
 						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
-					} elseif ( ( is_array( $single_function['function'] ) || is_object( $single_function['function'] ) ) && dbafa_is_closure( $single_function['function'][0] ) ) {
+					} elseif ( is_array( $single_function['function'] ) && is_object( $single_function['function'][0] ) && dbafa_is_closure( $single_function['function'][0] ) ) {
 						// Type 3 - closure within an array
 						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
+					} elseif ( is_object( $single_function['function'] ) && is_callable( $single_function['function'] ) ) {
+						// Type 9 - invocable
+						$signature = get_class( $single_function['function'] ) . ' -> __invoke';
+						$table .= '<li>[<em>' . esc_html__( 'object', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) === false ) {
 						// Type 4 - simple string function (includes lambda's)
 						$signature = sanitize_text_field( $single_function['function'] );
@@ -204,6 +208,7 @@ function debug_bar_action_and_filters_addon_display_filters() {
 						$table .= '<li>[<em>' . esc_html__( 'object', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} else {
 						// Type 8 - undetermined
+						$signature = uniqid( 'undetermined_callback_' );
 						$table .= '<li><pre>' . var_export( $single_function, true ) . '</pre></li>';
 					}
 
