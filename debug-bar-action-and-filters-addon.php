@@ -10,7 +10,7 @@
  * Depends: Debug Bar
  * Text Domain: debug-bar-actions-and-filters-addon
  * Domain Path: /languages
- * License: GPLv2
+ * License: GPLv2 or later
  *
  * @author  subharanjan
  * @package debug-bar-actions-and-filters-addon
