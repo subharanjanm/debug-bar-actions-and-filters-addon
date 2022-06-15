@@ -3,7 +3,7 @@
  * Plugin Name: Debug Bar Actions and Filters Addon
  * Plugin URI: https://wordpress.org/plugins/debug-bar-actions-and-filters-addon/
  * Description: This plugin add two more tabs in the Debug Bar to display hooks(Actions and Filters) attached to the current request. Actions tab displays the actions hooked to current request. Filters tab displays the filter tags along with the functions attached to it with priority.
- * Version: 1.5.4
+ * Version: 1.5.5
  * Author: Subharanjan
  * Author Email: subharanjanmantri@gmail.com
  * Author URI: http://subharanjan.com/
@@ -14,7 +14,7 @@
  *
  * @author  subharanjan
  * @package debug-bar-actions-and-filters-addon
- * @version 1.5.4
+ * @version 1.5.5
  */
 
 // Exit if accessed directly
@@ -182,28 +182,32 @@ function debug_bar_action_and_filters_addon_display_filters() {
 						// Type 2 - closure
 						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
+					} elseif ( is_object( $single_function['function'] ) && is_callable( $single_function['function'] ) ) {
+						// Type 3 - invokable class/ object of a class that implements the `__invoke()`/ a function object or functor.
+						$signature = esc_html( get_class( $single_function['function'] ) ) . ' -> __invoke';
+						$table .= '<li>[<em>' . esc_html__( 'object', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} elseif ( ( is_array( $single_function['function'] ) || is_object( $single_function['function'] ) ) && dbafa_is_closure( $single_function['function'][0] ) ) {
-						// Type 3 - closure within an array
+						// Type 4 - closure within an array
 						$table .= '<li>[<em>' . esc_html__( 'closure', 'debug-bar-actions-and-filters-addon' ) . '</em>]</li>';
 						$signature = get_class( $single_function['function'] ) . $hook_in_count;
 					} elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) === false ) {
-						// Type 4 - simple string function (includes lambda's)
+						// Type 5 - simple string function (includes lambda's)
 						$signature = sanitize_text_field( $single_function['function'] );
 						$table .= '<li>' . $signature . '</li>';
 					} elseif ( is_string( $single_function['function'] ) && strpos( $single_function['function'], '::' ) !== false ) {
-						// Type 5 - static class method calls - string
+						// Type 6 - static class method calls - string
 						$signature = str_replace( '::', ' :: ', sanitize_text_field( $single_function['function'] ) );
 						$table .= '<li>[<em>' . esc_html__( 'class', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} elseif ( is_array( $single_function['function'] ) && ( is_string( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
-						// Type 6 - static class method calls - array
+						// Type 7 - static class method calls - array
 						$signature = sanitize_text_field( $single_function['function'][0] ) . ' :: ' . sanitize_text_field( $single_function['function'][1] );
 						$table .= '<li>[<em>' . esc_html__( 'class', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} elseif ( is_array( $single_function['function'] ) && ( is_object( $single_function['function'][0] ) && is_string( $single_function['function'][1] ) ) ) {
-						// Type 7 - object method calls
+						// Type 8 - object method calls
 						$signature = esc_html( get_class( $single_function['function'][0] ) ) . ' -> ' . sanitize_text_field( $single_function['function'][1] );
 						$table .= '<li>[<em>' . esc_html__( 'object', 'debug-bar-actions-and-filters-addon' ) . '</em>] ' . $signature . '</li>';
 					} else {
-						// Type 8 - undetermined
+						// Type 9 - undetermined
 						$table .= '<li><pre>' . var_export( $single_function, true ) . '</pre></li>';
 					}
 

@@ -4,10 +4,10 @@ Contributors: subharanjan, jrf
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9N6KZQ2K8W7UJ
 Tags: Debug Bar, Actions, Filters, Debug Bar Actions Display, Debug Bar Filters Display, List Hooks attached, List of Hooks Fired, Developer's tool for action and filter hooks
 Requires at least: 3.3
-Tested up to: 4.8.1
-Stable tag: 1.5.4
+Tested up to: 6.0
+Stable tag: 1.5.5
 Requires PHP: 5.2.4
-License: GPLv2
+License: GPLv2 (or later)
 
 Displays all the hooks( Actions and Filters ) for the current request in Debug Bar panel.
 
@@ -50,6 +50,11 @@ This plugin is only meant to be used for development purposes, but shouldn't cau
 
 
 == Changelog ==
+
+= 1.5.5 =
+* Bugfix: Fatal error due to invokable objects [#22](https://github.com/subharanjanm/debug-bar-actions-and-filters-addon/pull/22) . Thank you @eimanavicius for [#20](https://github.com/subharanjanm/debug-bar-actions-and-filters-addon/pull/20)
+* License with GPLv2 (or later) [#23](https://github.com/subharanjanm/debug-bar-actions-and-filters-addon/pull/23) . Thank you @nextgenthemes
+* Confirm WP 6.0 compatibility
 
 = 1.5.4 =
 * Improve the travis build [#22](https://github.com/subharanjanm/debug-bar-actions-and-filters-addon/pull/22)
